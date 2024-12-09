@@ -1,8 +1,9 @@
-# FUNCTION ONLY - WORKS
+# use function to load model and generate response - WORKING
 import logging
 import os
 import torch
 from transformers import AutoTokenizer, AutoModelForCausalLM
+# from google.colab import userdata
 
 logging.basicConfig(level=logging.INFO)
 
@@ -11,6 +12,7 @@ model_name = "meta-llama/Llama-2-7b-chat-hf"
 
 try:
     # Check for Hugging Face token
+    # hf_token = userdata.get('HUGGING_FACE_TOKEN')
     hf_token = os.environ.get('HUGGING_FACE_TOKEN')
     if not hf_token:
         raise ValueError("Hugging Face token is required. Set HUGGING_FACE_TOKEN environment variable.")
